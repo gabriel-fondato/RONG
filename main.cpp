@@ -10,6 +10,12 @@ float barLY = HIGHT / 2 - 100;
 float barRYaceleration;
 float barLYaceleration; 
 
+float ballX = WIDTH /2;
+float ballY = HIGHT /2;
+
+float ballxSpeed = 5.0f;
+float ballySpeed = -5.0f;
+
 
 
 
@@ -33,13 +39,20 @@ int main() {
 		barRY += barRYaceleration;
 		barLY += barLYaceleration;
 
+	//ball stuff
+		ballX += ballxSpeed;
+		ballY += ballySpeed;
+
+		if (ballY > HIGHT) ballySpeed *= -1;
+		if (ballY < 0) ballySpeed *= -1;
+
 		//printf("%f \n", barRYaceleration);
 
 
 		BeginDrawing();
 			ClearBackground(BLACK);
 			DrawFPS(10, 10);
-			DrawCircle(WIDTH/2, HIGHT/2, 10, WHITE);
+			DrawCircle(ballX, ballY, 10, WHITE);
 			DrawRectangle(15, barLY, 15, 200, WHITE);
 			DrawRectangle(WIDTH -30, barRY, 15, 200, WHITE);
 
