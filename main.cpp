@@ -19,14 +19,19 @@ int main() {
 //main loop
 	while (!WindowShouldClose()) {
 	//check keys and do stuff with them	
-		if (IsKeyDown(KEY_W)) barRYaceleration -= 2.0f;
-		if (IsKeyDown(KEY_S)) barRYaceleration += 2.0f;
+		if (IsKeyDown(KEY_UP)) barRYaceleration -= 2.0f;
+		if (IsKeyDown(KEY_DOWN)) barRYaceleration += 2.0f;
+		if (IsKeyDown(KEY_W)) barLYaceleration -= 2.0f;
+		if (IsKeyDown(KEY_S)) barLYaceleration += 2.0f;
 	
 
 	//make aceleration on the bars
 		if (barRYaceleration > 0) barRYaceleration -= 0.5f;
 		if (barRYaceleration < 0) barRYaceleration += 0.5f;
+		if (barLYaceleration > 0) barLYaceleration -= 0.5f;
+		if (barLYaceleration < 0) barLYaceleration += 0.5f;
 		barRY += barRYaceleration;
+		barLY += barLYaceleration;
 
 		//printf("%f \n", barRYaceleration);
 
